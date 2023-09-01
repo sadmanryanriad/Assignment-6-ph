@@ -13,12 +13,12 @@
 <body>
     <header>
         <div class="nav-container">
-            <div class="navbar flex flex-col lg:flex-row gap-5 justify-between w-[90%] mx-auto">
+            <div class="navbar flex flex-col lg:flex-row gap-5 justify-between w-[90%] mx-auto ">
                 <div class="">
                     <img src="Logo.png" alt="">
                 </div>
                 <div class="">
-                    <button class="btn bg-slate-300">Sort by view</button>
+                    <button id="sort-by-view" onclick="sortByView()" class="btn bg-slate-300 ">Sort by view</button>
                 </div>
                 <div class="">
                     <button class="btn bg-[#FF1F3D] text-white">Blog</button>
@@ -34,10 +34,6 @@
     <!-- category buttons -->
     <section class="w-[90%] mx-auto mb-10">
         <div id="button-container" class=" flex gap-3 lg:gap-6 justify-center">
-            <!-- <button class="btn ">All</button> -->
-            <!-- <button class="btn ">Music</button>
-            <button class="btn ">Comedy</button>
-            <button class="btn ">Drawing</button> -->
         </div>
     </section>
 
@@ -78,6 +74,17 @@
 
     </section>
 
+    <div id="no-data-container">
+    <!-- no data -->
+    <!-- <div class="mt-10 lg:mt-20">
+        <div>
+            <img src="Icon.png" alt="" class="w-32 h-auto mx-auto">
+        </div>
+        <div>
+            <h1 class="text-3xl font-bold text-center mt-8" >Oops!! Sorry, There is no<br> content here</h1>
+        </div>
+    </div> -->
+    </div>
 
 
 
