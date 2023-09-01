@@ -1,6 +1,9 @@
 //this
 let currentDataArray;
+
+
 const buttonContainer = document.getElementById('button-container');
+
 const handleCategory = async () => {
     const res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     const data = await res.json();
@@ -13,6 +16,7 @@ const handleCategory = async () => {
         buttonContainer.appendChild(button);
 
     });
+    videoLoader('1000');
 }
 
 const cardContainerDiv = document.getElementById('card-container');
