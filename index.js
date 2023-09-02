@@ -126,7 +126,6 @@ function sortByView() {
         cardContainerDiv.appendChild(videoDiv);
     });
 
-    console.log(currentDataArray);
 }
 
 function secondToHourMinute(secondString){

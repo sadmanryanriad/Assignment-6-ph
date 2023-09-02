@@ -18,125 +18,352 @@
     <div id="blog-container"
         class=" w-[90%] md:[80%] lg:w-[60%] mx-auto rounded-lg px-1 md:px-3 lg:px-4 py-1 bg-slate-100">
 
-        <h1 class="text-center text-2xl md:text-4xl lg:text-5xl my-10">Scope of <code
-            class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code>, <code
-            class="text-[90%]  bg-green-400 rounded-lg p-1">let</code>, and <code
-            class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code></h1>
-<div class="text-center">
-    <button  id="read-post-1" class="btn bg-[#FF1F3D] text-white ">Read full post</button>
-</div>
-
-<div id="read-post-containe-1" class="hidden">
-    <div id="var">
-        <h3 class="text-2xl font-semibold max-w-max text-white bg-red-500 rounded-lg  px-2 md:px-3 lg:px-4 m-4">var :
-
-        </h3>
-        <ul class="list-disc list-inside pl-6">
-            <li>Function Scope: Variables declared with <code
-                    class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> are function-scoped, meaning
-                they are only accessible
-                within the function in which they are declared.</li>
-            <li>Hoisting: Variables declared with <code
-                    class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> are hoisted to the top of
-                their containing function or global
-                scope. This means you can use the variable before it's declared in the code, but its value will be
-                <code class="text-[90%] text-white bg-blue-500 rounded-lg p-1">undefined</code> until it's assigned
-                a value.
-            </li>
-        </ul>
-        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
-            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
-            <div class="bg-gray-200 rounded-lg p-4">
-                <code class="text-sm font-mono">
-                    function example() {<br>
-                        if (true) {<br>
-                          var x = 10;<br>
-                        }<br>
-                        console.log(x); // Outputs 10, as var is function-scoped<br>
-                      }<br>
-                </code>
-            </div>
-        </div>
-    </div>
-    <div id="let">
-        <h3 class="text-2xl font-semibold max-w-max text-white bg-green-500 rounded-lg px-2 md:px-3 lg:px-4 m-4">let :
-        </h3>
-        <ul class="list-disc list-inside pl-6">
-            <li>Block Scope: Variables declared with <code
-                    class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> are block-scoped, meaning they are
-                only accessible within the block in which they are declared (e.g., a function, loop, or any block
-                enclosed in curly braces {}).</li>
-            <li>Hoisting: Like <code class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code>, <code
-                    class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> variables are also hoisted but not
-                initialized. They are in the "Temporal Dead Zone" (TDZ) until they are declared.</li>
-        </ul>
-        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
-            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
-            <div class="bg-gray-200 rounded-lg p-4">
-                <code class="text-sm font-mono">
-                    function example() { <br>
-                        if (true) {<br>
-                          let y = 20;<br>
-                        }<br>
-                        console.log(y); // ReferenceError: y is not defined, as let is block-scoped<br>
-                      }<br>
-                      
-                </code>
-            </div>
-        </div>
-    </div>
-    <div id="const">
-        <h3 class="text-2xl font-semibold max-w-max text-white bg-slate-500 rounded-lg px-2 md:px-3 lg:px-4 m-4">const :
-        </h3>
-        <ul class="list-disc list-inside pl-6">
-            <li>Block Scope: Variables declared with <code
-                    class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> are also block-scoped, just like
-                <code class="text-[90%]  bg-green-400 rounded-lg p-1">let</code>.</li>
-            <li>Constant Value: <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> variables cannot
-                be reassigned once they have been assigned a value. However, for objects and arrays declared with
-                <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code>, you can still modify their
-                properties or elements.</li>
-        </ul>
-        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
-            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
-            <div class="bg-gray-200 rounded-lg p-4">
-                <code class="text-sm font-mono">
-                    function example() {<br>
-                        if (true) {<br>
-                          const z = 30;<br>
-                          // z = 40; // Error: Assignment to constant variable<br>
-                        }<br>
-                        console.log(z); // ReferenceError: z is not defined, as const is block-scoped<br>
-                      }     <br>                         
-                </code>
-            </div>
-        </div>
-    </div>
-    <div id="scope-summary" class="pl-6 my-7">
+        <!-- post 1 -->
         <div>
-            In modern JavaScript development, it's generally recommended to use <code
-            class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> and <code
-            class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> over <code
-            class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> because they provide more predictable
-        scoping behavior and help prevent common programming errors. Use <code
-            class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> for variables that may change their value,
-        and use <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> for variables that should remain
-        constant throughout their scope.
-        <p class="text-sm my-4">Date: 2 september 2023</p>
+            <h1 class="text-center text-2xl md:text-4xl lg:text-5xl my-10">Scope of <code
+                    class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code>, <code
+                    class="text-[90%]  bg-green-400 rounded-lg p-1">let</code>, and <code
+                    class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code></h1>
+
+
+            <div id="post-container" class=" ">
+                <div id="var">
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-red-500 rounded-lg  px-2 md:px-3 lg:px-4 m-4">
+                        var :
+
+                    </h3>
+                    <ul class="list-disc list-inside pl-6">
+                        <li>Function Scope: Variables declared with <code
+                                class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> are function-scoped,
+                            meaning
+                            they are only accessible
+                            within the function in which they are declared.</li>
+                        <li>Hoisting: Variables declared with <code
+                                class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> are hoisted to the
+                            top of
+                            their containing function or global
+                            scope. This means you can use the variable before it's declared in the code, but its value
+                            will
+                            be
+                            <code class="text-[90%] text-white bg-blue-500 rounded-lg p-1">undefined</code> until it's
+                            assigned
+                            a value.
+                        </li>
+                    </ul>
+                    <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                        <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                        <div class="bg-gray-200 rounded-lg p-4">
+                            <code class="text-sm font-mono">
+            function example() {<br>
+                if (true) {<br>
+                  var x = 10;<br>
+                }<br>
+                console.log(x); // Outputs 10, as var is function-scoped<br>
+              }<br>
+        </code>
+                        </div>
+                    </div>
+                </div>
+                <div id="let">
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-green-500 rounded-lg px-2 md:px-3 lg:px-4 m-4">
+                        let :
+                    </h3>
+                    <ul class="list-disc list-inside pl-6">
+                        <li>Block Scope: Variables declared with <code
+                                class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> are block-scoped, meaning
+                            they
+                            are
+                            only accessible within the block in which they are declared (e.g., a function, loop, or any
+                            block
+                            enclosed in curly braces {}).</li>
+                        <li>Hoisting: Like <code class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code>,
+                            <code class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> variables are also hoisted
+                            but
+                            not
+                            initialized. They are in the "Temporal Dead Zone" (TDZ) until they are declared.
+                        </li>
+                    </ul>
+                    <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                        <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                        <div class="bg-gray-200 rounded-lg p-4">
+                            <code class="text-sm font-mono">
+            function example() { <br>
+                if (true) {<br>
+                  let y = 20;<br>
+                }<br>
+                console.log(y); // ReferenceError: y is not defined, as let is block-scoped<br>
+              }<br>
+              
+        </code>
+                        </div>
+                    </div>
+                </div>
+                <div id="const">
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-slate-500 rounded-lg px-2 md:px-3 lg:px-4 m-4">
+                        const :
+                    </h3>
+                    <ul class="list-disc list-inside pl-6">
+                        <li>Block Scope: Variables declared with <code
+                                class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> are also block-scoped, just
+                            like
+                            <code class="text-[90%]  bg-green-400 rounded-lg p-1">let</code>.
+                        </li>
+                        <li>Constant Value: <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> variables
+                            cannot
+                            be reassigned once they have been assigned a value. However, for objects and arrays declared
+                            with
+                            <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code>, you can still modify
+                            their
+                            properties or elements.
+                        </li>
+                    </ul>
+                    <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                        <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                        <div class="bg-gray-200 rounded-lg p-4">
+                            <code class="text-sm font-mono">
+            function example() {<br>
+                if (true) {<br>
+                  const z = 30;<br>
+                  // z = 40; // Error: Assignment to constant variable<br>
+                }<br>
+                console.log(z); // ReferenceError: z is not defined, as const is block-scoped<br>
+              }     <br>                         
+        </code>
+                        </div>
+                    </div>
+                </div>
+                <div id="scope-summary" class="pl-6 my-7">
+                    <div>
+                        In modern JavaScript development, it's generally recommended to use <code
+                            class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> and <code
+                            class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> over <code
+                            class="text-[90%] text-white bg-red-500 rounded-lg p-1">var</code> because they provide more
+                        predictable
+                        scoping behavior and help prevent common programming errors. Use <code
+                            class="text-[90%]  bg-green-400 rounded-lg p-1">let</code> for variables that may change
+                        their
+                        value,
+                        and use <code class="text-[90%]  bg-slate-400 rounded-lg p-1">const</code> for variables that
+                        should
+                        remain
+                        constant throughout their scope.
+                        <p class="text-sm my-4">Date: 2 september 2023</p>
+                    </div>
+
+                </div>
+                <!-- author -->
+                <!-- <div class="bg-white max-w-max p-5 text-center mx-auto rounded-lg">
+                    <h4 class="font-semibold mb-3"><span class="text-green-600">Author:</span> Sadman Ryan Riad</h4>
+                    <img src="riad.jpg" alt=""
+                        class="w-16 rounded-full mb-3 mx-auto border-solid border-4 border-indigo-600">
+                    <h5 class="font-semibold text-indigo-600">Senior Web Developer</h5>
+                </div>
+            </div> -->
+
+            </div>
         </div>
+        <!-- post 2 -->
+        <div>
+            <h1 class="text-center text-2xl md:text-4xl lg:text-5xl my-10">The use cases of <code
+                    class="text-[90%] text-white bg-slate-500 rounded-lg p-1">null</code> and <code
+                    class="text-[90%] text-white bg-blue-500 rounded-lg p-1">undefined</code></h1>
 
-    </div>
-    <!-- author -->
-    <div class="bg-white max-w-max p-5 text-center mx-auto rounded-lg">
-        <h4 class="font-semibold mb-3"><span class="text-green-600">Author:</span> Sadman Ryan Riad</h4>
-        <img src="riad.jpg" alt="" class="w-16 rounded-full mb-3 mx-auto border-solid border-4 border-indigo-600">
-        <h5 class="font-semibold text-indigo-600">Senior Web Developer</h5>
-    </div>
-</div>
+            <div id="post-container" class=" ">
+                <!-- undefined -->
+                <div>
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-blue-500 rounded-lg  px-2 md:px-3 lg:px-4 m-4">
+                        undefined :</h3>
+                    <!-- post-1 -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Default Initial Value: Variables declared but not assigned a value automatically
+                                have
+                                the
+                                undefined value. For example:</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">let x; // x is undefined</code>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- post-2 -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Function Parameters: If a function is called with fewer arguments than the number of
+                                parameters defined, the missing parameters are set to undefined.</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">function greet(name) {
+                                    console.log("Hello, " + name); // If name is not provided, it's undefined
+                                  }
+                                  </code>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- post-3  -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Object Properties: When you access an object property that doesn't exist, it returns
+                                undefined.</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">const person = { firstName: "John" };
+                                    console.log(person.lastName); // lastName is undefined
+                                    
+                                  </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- null -->
+                <div>
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-slate-500 rounded-lg  px-2 md:px-3 lg:px-4 m-4">
+                        null :</h3>
+                    <!-- post-1 -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Intentional Absence: null is typically used when you want to explicitly indicate
+                                that a variable or object property has no value or is intentionally empty.</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">let myVariable = null; // Explicitly set to null
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- post-2 -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Resetting Values: It can be used to reset or clear the value of a variable or object
+                                property that was previously assigned a value.</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">let user = { name: "Alice" };
+                                    user = null; // Clear the user object
+                                                                      
+                                  </code>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- post-3  -->
+                    <div>
+                        <ul class="list-disc list-inside pl-6">
+                            <li>Comparison: null can be used in conditional statements or comparisons to check if a
+                                variable intentionally has no value.</li>
+                        </ul>
+                        <!-- code -->
+                        <div class="max-w-md bg-white p-4 rounded-lg shadow-lg pl-6 mt-4">
+                            <h1 class="text-2xl font-bold mb-4">Code Example</h1>
+                            <div class="bg-gray-200 rounded-lg p-4">
+                                <code class="text-sm font-mono">let data = fetchData();
+                                    if (data === null) {
+                                      // Handle the case where data is intentionally missing
+                                    }
+                                    
+                                  </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="scope-summary" class="pl-6 my-7">
+                    <div>
+                        In summary, undefined often represents the absence of a value due to default behavior or
+                        missing assignments, while null is used to explicitly denote the absence or clearing of a
+                        value. Understanding when and how to use these values correctly is essential for writing
+                        robust JavaScript code.
+                        <p class="text-sm my-4">Date: 2 september 2023</p>
+                    </div>
+
+                </div>
+                <!-- author -->
+                <!-- <div class="bg-white max-w-max p-5 text-center mx-auto rounded-lg">
+                    <h4 class="font-semibold mb-3"><span class="text-green-600">Author:</span> Sadman Ryan Riad</h4>
+                    <img src="riad.jpg" alt=""
+                        class="w-16 rounded-full mb-3 mx-auto border-solid border-4 border-indigo-600">
+                    <h5 class="font-semibold text-indigo-600">Senior Web Developer</h5>
+                </div> -->
+            </div>
+        </div>
+        <!-- post 3 -->
+        <div>
+            <h1 class="text-center text-2xl md:text-4xl lg:text-5xl my-10">What is REST API?</h1>
+
+            <div id="post-container" class=" ">
+                <!-- undefined -->
+                <div>
+                    <h3
+                        class="text-2xl font-semibold max-w-max text-white bg-blue-500 rounded-lg  px-2 md:px-3 lg:px-4 m-4">
+                        REST API :</h3>
+                    <!-- post-1 -->
+                    <div>
+                        <h4 class="pl-6">
+                            REST API, or Representational State Transfer Application Programming Interface, is an architectural style and set of constraints for designing and interacting with web services. It was introduced by Roy Fielding in his doctoral dissertation in 2000 and has since become a widely adopted approach for building web APIs.
+                            
+                            Key characteristics and principles of RESTful APIs include:
+                            Stateless: Each request from a client to a server must contain all the information needed to understand and process the request. The server should not rely on any previous requests from the same client. <br> <br>
+
+                            Client-Server Architecture: REST separates the client (the user interface) from the server (the application logic and data storage). This separation allows for better scalability and simplifies client and server implementation. <br> <br>
+                            
+                            Uniform Interface: REST APIs should have a consistent and predictable interface. This includes the use of standard HTTP methods (GET, POST, PUT, DELETE) for CRUD (Create, Read, Update, Delete) operations on resources. Resources are identified by URLs (Uniform Resource Locators). <br> <br>
+                            
+                            Resource-Based: In REST, everything is considered a resource. Resources are identified by unique URIs and can be manipulated using standard HTTP methods. For example, a REST API for a blog might have resources like /posts, /comments, and /users. <br> <br>
+                            
+                            Representation: Resources can have multiple representations, such as JSON, XML, HTML, or other formats. Clients can request the representation that best suits their needs, typically through the use of the Accept header in the HTTP request. <br> <br>
+                            
+                            Stateless Communication: Each request from a client to a server must contain all the information needed to understand and process the request. Sessions and state information should be kept on the client side, not the server side. <br> <br>
+                            
+                            Layered System: A RESTful API can be implemented in a layered architecture, where different components (e.g., load balancers, caching servers) can be added or removed without affecting the overall system. <br> <br>
+                            
+                            Idempotence: Certain HTTP methods (e.g., GET, PUT, DELETE) should be idempotent, meaning that performing the same operation multiple times has the same effect as performing it once. <br> <br>
+                        </h4>
+
+                    </div>
+
+                </div>
+
+                <div id="scope-summary" class="pl-6 my-7">
+                    <div>
+                        In summary, undefined often represents the absence of a value due to default behavior or
+                        missing assignments, while null is used to explicitly denote the absence or clearing of a
+                        value. Understanding when and how to use these values correctly is essential for writing
+                        robust JavaScript code.
+                        <p class="text-sm my-4">Date: 2 september 2023</p>
+                    </div>
+
+                </div>
+                <!-- author -->
+                <div class="bg-white max-w-max p-5 text-center mx-auto rounded-lg">
+                    <h4 class="font-semibold mb-3"><span class="text-green-600">Author:</span> Sadman Ryan Riad</h4>
+                    <img src="riad.jpg" alt=""
+                        class="w-16 rounded-full mb-3 mx-auto border-solid border-4 border-indigo-600">
+                    <h5 class="font-semibold text-indigo-600">Senior Web Developer</h5>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <script src="blog.js"></script>
+    <!-- <script src="blog.js"></script> -->
 </body>
 
 </html>
