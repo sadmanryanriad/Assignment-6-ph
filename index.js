@@ -14,7 +14,6 @@ const handleCategory = async () => {
         <button onclick="videoLoader('${element.category_id}')" class="btn no-animation">${element.category}</button>
         `;
         buttonContainer.appendChild(button);
-
     });
     videoLoader('1000');
 }
