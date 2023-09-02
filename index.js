@@ -42,9 +42,9 @@ async function videoLoader(categoryId) {
         <div class="w-80 bg-base-100 mx-auto ">
         <div class="relative">
             <img src="${element.thumbnail}" alt="Shoes" class="rounded-lg w-full h-[200px]">
-            <div
-                class="text-[10px] bg-black text-white w-[87px] text-center p-1 rounded-md absolute bottom-3 right-3 ">
-                <p>3hrs 56 min ago</p>
+            <div id="time"
+                class="text-[10px] bg-black text-white w-[87px] text-center p-1 rounded-md absolute bottom-3 right-3 ${element.others.posted_date===''?'hidden':''}">
+                <p >${secondToHourMinute(element.others.posted_date)}</p>
             </div>
         </div>
         <div class="mt-4 flex">
@@ -102,9 +102,9 @@ function sortByView() {
         <div class="w-80 bg-base-100 mx-auto ">
         <div class="relative">
             <img src="${element.thumbnail}" alt="Shoes" class="rounded-lg w-full h-[200px]">
-            <div
-                class="text-[10px] bg-black text-white w-[87px] text-center p-1 rounded-md absolute bottom-3 right-3 ">
-                <p>3hrs 56 min ago</p>
+            <div id="time"
+                class="text-[10px] bg-black text-white w-[87px] text-center p-1 rounded-md absolute bottom-3 right-3 ${element.others.posted_date===''?'hidden':''}">
+                <p >${secondToHourMinute(element.others.posted_date)}</p>
             </div>
         </div>
         <div class="mt-4 flex">
@@ -129,4 +129,21 @@ function sortByView() {
 
     console.log(currentDataArray);
 }
+
+function secondToHourMinute(secondString){
+    second = parseInt(secondString);
+    let hour = parseInt(second/3600);
+    second = second%3600;
+    minute = parseInt(second / 60);
+    return `${hour}hrs ${minute} min ago`;
+}
+
+function removeTimebox(timeId){
+
+}
+
+
 handleCategory();
+
+
+
